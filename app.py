@@ -3,7 +3,7 @@ from flask_cors import CORS
 import random
 
 app = Flask(__name__)
-CORS(app, resources={r"/guess": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 def load_words(file_path):
     try:
@@ -11,20 +11,23 @@ def load_words(file_path):
             words = [line.strip().lower() for line in file if len(line.strip()) == 5]
         return words
     except FileNotFoundError:
-        return []  # Return an empty list if the file is not found
+        return []
 
 word_list = load_words('wordle-words.txt')
 if not word_list:
     raise Exception("Word list is empty. Check the file path and contents.")
 
-target_word = random.choice(word_list)
+@app.route('/new_word', methods=['GET'])
+def new_word():
+    return jsonify({'word': random.choice(word_list)})
 
 @app.route('/guess', methods=['POST'])
 def guess():
     user_guess = request.json.get('guess', '').lower()
     if not user_guess or len(user_guess) != 5 or not user_guess.isalpha():
         return jsonify({'error': 'Invalid guess, please submit a five-letter word.'}), 400
-    
+
+    target_word = request.json.get('target_word')
     feedback = get_feedback(user_guess, target_word)
     return jsonify({'feedback': feedback})
 
