@@ -1,0 +1,80 @@
+/* Basic resets */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Main app container styling */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+/* Form styling */
+form {
+  margin-top: 20px;
+}
+
+input[type="text"] {
+  font-size: 18px;
+  padding: 10px;
+  margin-right: 10px;
+  width: 200px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Feedback display styling */
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+}
+
+span[style*="green"] {
+  background-color: #28a745;
+}
+
+span[style*="orange"] {
+  background-color: #ffc107;
+}
+
+span[style*="grey"] {
+  background-color: #6c757d;
+}
