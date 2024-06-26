@@ -112,7 +112,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Wordle Game</h1>
+      <h1>Wordle</h1>
       <GameBoard history={history} guess={guess} gameOver={gameOver} />
       <Keyboard handleKey={handleKey} keyStatus={keyStatus} />
       <button className="new-game" onClick={startNewGame}>
