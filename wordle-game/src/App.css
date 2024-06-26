@@ -1,5 +1,22 @@
 /* App.css */
-body, html {
+/* App.css */
+.solve-puzzle {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.solve-puzzle:hover {
+  background-color: #218838;
+}
+
+body,
+html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
